@@ -22,5 +22,6 @@ from InstagramProject.settings import INSTALLED_APPS
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'',include('InstagramApp.urls'))
+    url(r'',include('InstagramApp.urls')),
+    url(r'^accounts/',include('registration.backends.simple.urls')),
 ]
