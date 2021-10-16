@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from django.contrib.auth import views
 
 from InstagramProject.settings import INSTALLED_APPS
 
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'',include('InstagramApp.urls')),
     url(r'^accounts/',include('registration.backends.simple.urls')),
+    path('logout/', views.LogoutView.as_view(), name='logout'),
 ]
