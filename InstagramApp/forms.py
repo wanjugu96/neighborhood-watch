@@ -1,10 +1,10 @@
 from django import forms
 from .models import *
 
-class uploadimage(forms.ModelForm):
+class uploadimageform(forms.ModelForm):
     name = forms.CharField()
     image = forms.ImageField()
-    caption= forms.CharField()
+    caption= forms.Textarea()
     
     
 
@@ -15,7 +15,7 @@ class uploadimage(forms.ModelForm):
 class createProfileform(forms.ModelForm):
     
     profile_photo = forms.ImageField()
-    bio= forms.CharField()
+    bio= forms.Textarea()
 
     class Meta:
         model=Profile

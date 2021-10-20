@@ -1,11 +1,16 @@
 {% include 'base.html'%}
+<div class="container">
+{{ block.super }}
+{% block content %}
 
-{% block content%}
+<h1>Profile page</h1>
 
+<h1>The username is : {{profile.name}}  </h1>
 
-<h1>{{current_user.username}} Profile </h1>
+<img src="{{profile.profile_photo.url}}" alt="name " >
+<h6>Bio is this {{profile.bio}}</h6>
+<h6>ID is this {{profile.id}}</h6>
+{% endblock  %}
+</div>
 
-<img src="{{profile.profile_photo}}" alt="" >
-<h6>{{profile.bio}}</h6>
-
-      {% endblock %}
+      
