@@ -12,10 +12,12 @@ def home(request):
     
     current_user = request.user
     username=current_user.username
-
-
-    aprofile=Profile(name=username)
-    aprofile.save()
+    thisprofile=Profile.objects.filter(name = username)
+    if thisprofile:
+        return redirect('profile', username)
+    else:
+        aprofile=Profile(name=username)
+        aprofile.save()
               
 
     #return render(request,'index.html',{"current_user":current_user,})
@@ -87,14 +89,17 @@ def createProfile(request):
 
 
 def profile(request,name):
-        profile=Profile.objects.get(name=name)
+    profile=Profile.objects.get(name=name)
 
-        id=profile.id 
-        
+    id=profile.id 
+    
 
-        Allimages=Image.objects.filter(profile_id = id)
+    Allimages=Image.objects.filter(profile_id = id)
+    form=uploadimageform()
 
-        return render(request ,'profile.html',{"profile":profile, "Allimages":Allimages})  
+    
+
+    return render(request ,'profile.html',{"profile":profile, "Allimages":Allimages,"form":form}) 
 
     
     

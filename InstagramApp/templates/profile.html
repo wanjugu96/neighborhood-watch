@@ -13,10 +13,21 @@
 
 <div class="col-md-4">
     <br>
+    {%if profile.profile_photo %}
     <div class="circle">
 
-    <img src="{{profile.profile_photo.url}}" alt="name " >
+    {% comment %} <img src="{{profile.profile_photo.url}}" alt="name " > {% endcomment %}
+    
+    <img src="{{profile.profile_photo.url}}"
+     onerror="this.onerror=null;this.src='https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg';">
     </div>
+    {%else%}
+    <div class="circle">
+    <img src="https://image.shutterstock.com/image-vector/question-mark-bubble-icon-vector-600w-1169107912.jpg"
+     onerror="this.onerror=null;this.src='https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg';">
+    </div>
+    {% endif %}
+
 </div>
 <div class="col-md-8">
 <br>
@@ -49,22 +60,73 @@
 {%for image in Allimages%}
 
 <div class ="col-md-4">
-<img  class="ml-1" src="{{image.image.url}}" alt=" {{image.name}}"  width="290" height="290">
+    <img  class=" n" src="{{image.image.url}}" alt=" {{image.name}}"  width="290" height="290">
 
-<h6> {{image.name}} </h6>
+    <div class="middle">
+    
+        <div class="text">{{image.name}}</div>
+    </div>
+    
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{image.id}}">
+  Launch demo modal
+</button>
+
+
+
+<!-- Modal -->
+<div class="  modal fade   " id="exampleModal{{image.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{image.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+      <img  class=" n" src="{{image.image.url}}" alt=" {{image.name}}"  width="290" height="290">
+
+      </div>
+      <div class="col-md-4 ms-auto">
+      <h6>{{image.likes}} likes</h6>
+      </div>
+    </div>
+    
+    
+    
+  </div>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </div>
 {% endfor %}
 
 
+<!-- Button trigger modal -->
+{% comment %} "modal-dialog modal-dialog-centered modal-dialog-scrollable" {% endcomment %}
+
+<!-- Modal -->
+
+
+
+
+
+
+
+
+
 
 
 </div>
-
-
-
-
-
-
 
 </div>
 

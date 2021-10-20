@@ -14,12 +14,12 @@
 <div class="container">
 <h1>{{current_user.username}}</h1>
  {% comment %} <a href="{%url 'profile' current_user.username%}">Edit Profile</a>  {% endcomment %}
- <h1>Add Image</h1>
+ {% comment %} <h1>Add Image</h1>
       <form method ="post" action="{% url 'uploadimage' %}" enctype="multipart/form-data">
        {% csrf_token %}
        {{form.as_p}}
        <button class="btn-primary" type="submit">Upload Image</button>
       </form>
-      </div>
+      </div> {% endcomment %}
 
     
