@@ -10,15 +10,21 @@ from .email import *
 def home(request):
     
     current_user = request.user
-    name=current_user.username
-    theprofile=Profile(name=name)
-    theprofile.save()
+    username=current_user.username
+    
 
     if request.method=='POST':
         form=uploadimage(request.POST,request.FILES)
         if form.is_valid():
+            name=form.cleaned_data['name']
+            image=form.cleaned_data['image']
+            caption=form.cleaned_data['caption']
+            profile=Profile.objects.filter(name=username)
+            # profile_id=profile.id
+            # theimage=Image(name=name,image=image,caption=caption,profile_id=profile_id)
+            # theimage.save()
 
-            form.save()
+            #form.save()
     
         else:
                        
@@ -27,7 +33,7 @@ def home(request):
 
     form=uploadimage()
    
-    return render(request,'index.html',{"current_user":current_user,"form":form})
+    return render(request,'index.html',{"current_user":current_user,"form":form,"profile":profile})
 
 
 def success(request):
@@ -36,14 +42,17 @@ def success(request):
 def createProfile(request):
     current_user = request.user
     name=current_user.username
-    theprofile=Profile(name=name)
-    theprofile.save()
+    
 
     if request.method=='POST':
         form= createProfileform(request.POST,request.FILES)
         if form.is_valid():
+            bio=form.cleaned_data['bio']
+            profile_photo=form.cleaned_data['profile_photo']
+            theprofile=Profile(name=name,profile_photo=profile_photo,bio=bio)
+            theprofile.save()
 
-            form.save()
+            #form.save()
         else:
                        
             form=createProfileform()

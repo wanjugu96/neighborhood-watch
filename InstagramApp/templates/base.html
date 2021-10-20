@@ -43,7 +43,7 @@
 
          <ul>
       <div class="col-sm-6 col-md-6">
-            {% comment %} {% if user.is_authenticated %} {% endcomment %}
+            {% if user.is_authenticated %} 
             <ul>
               <div class="dropdown">
                 <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
@@ -62,12 +62,12 @@
                 </ul>
               </div>
             </ul>
-            {% comment %} {% else %} {% endcomment %}
+        {% else %} 
            
               <a class='btn btn-default' href="/login">Login</a>
             
 
-            {% comment %} {% endif %} {% endcomment %}
+             {% endif %} 
       </nav>
       {% endblock %}
 
@@ -81,7 +81,8 @@
        {{form.as_p}}
        <button class="btn-primary" type="submit">Upload Image</button>
       </form>
-
+<h1>The name is ...{{profile.name}}</h1>
+<h1>The id is ...{{profile.id}}</h1>
       {% endblock %}
     </div>
     {% block scripts %}

@@ -1,0 +1,11 @@
+{% include 'base.html'%}
+
+{% block content%}
+
+
+<h1>{{current_user.username}} Profile </h1>
+
+<img src="{{profile.profile_photo}}" alt="" >
+<h6>{{profile.bio}}</h6>
+
+      {% endblock %}
