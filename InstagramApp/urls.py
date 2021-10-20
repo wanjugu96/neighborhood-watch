@@ -10,7 +10,10 @@ urlpatterns = [
     url('^success$', views.success, name = 'success'),
     url('^createProfile$', views.createProfile,name='createProfile'),
     url('^uploadimage$', views.uploadimage,name='uploadimage'),
-    path(r'^profile/<name>', views.profile,name='profile')
+    path(r'^profile/<name>', views.profile,name='profile'),
+    url(r'^image/(\d+)',views.singleimage , name='singleimage'),
+    url(r'^image/(\d+)',views.updatelikes , name='singleimage')
+
     
 ]
 

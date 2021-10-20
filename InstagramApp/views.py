@@ -101,6 +101,23 @@ def profile(request,name):
 
     return render(request ,'profile.html',{"profile":profile, "Allimages":Allimages,"form":form}) 
 
+def updatelikes(request,id):
+    image=Image.objects.get(id = id)
+
+    count=image.likes + 1 
+    Image.objects.filter(id = id).update(likes=count)
+
+    return render(request,'singleimage.html',{"image":image})
+
+def singleimage(request,id):
+       image=Image.objects.get(id = id)
+       return render(request,'singleimage.html',{"image":image})
+
+    
+
+
+
+
     
     
 
