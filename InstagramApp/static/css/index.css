@@ -1,0 +1,14 @@
+.circle {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profbio {
+    background-color: whitesmoke;
+    height: 400px;
+}

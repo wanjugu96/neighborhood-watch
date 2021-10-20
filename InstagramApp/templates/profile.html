@@ -1,16 +1,45 @@
 {% include 'base.html'%}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+{% endblock %}
+
 <div class="container">
 {{ block.super }}
 {% block content %}
 
-<h1>Profile page</h1>
+<div class="row profbio">
 
-<h1>The username is : {{profile.name}}  </h1>
+<div class="col-md-4">
+    <br>
+    <div class="circle">
 
-<img src="{{profile.profile_photo.url}}" alt="name " >
-<h6>Bio is this {{profile.bio}}</h6>
-<h6>ID is this {{profile.id}}</h6>
+    <img src="{{profile.profile_photo.url}}" alt="name " >
+    </div>
+</div>
+<div class="col-md-8">
+<br>
+<h3>{{profile.name}}
+<span>
+
+<a class="btn btn-outline-dark btn-sm" href="{% url 'createProfile' %}">Edit Profile</a>
+</span>
+ </h3>
+ <br>
+    <h4>Bio : " {{profile.bio}} "</h4>
+    <br>
+    <h6> {{profile.id}} followers
+    <span class="ml-3">
+       {{profile.id}} following</h6>
+    </span>
+     <span class="ml-3">
+       {{profile.id}} posts</h6>
+    </span>
+    </h6>
 {% endblock  %}
+</div>
+</div>
 </div>
 
       
