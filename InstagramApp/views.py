@@ -87,9 +87,16 @@ def createProfile(request):
 
 
 def profile(request,name):
-        profile=Profile.objects.get(name=name) 
+        profile=Profile.objects.get(name=name)
 
-        return render(request ,'profile.html',{"profile":profile})           
+        id=profile.id 
+        
+
+        Allimages=Image.objects.filter(profile_id = id)
+
+        return render(request ,'profile.html',{"profile":profile, "Allimages":Allimages})  
+
+    
     
 
 

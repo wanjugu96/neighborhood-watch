@@ -37,9 +37,35 @@
        {{profile.id}} posts</h6>
     </span>
     </h6>
+    <hr>
 {% endblock  %}
 </div>
 </div>
+<br>
+<hr>
+<br>
+
+<div class="row">
+{%for image in Allimages%}
+
+<div class ="col-md-4">
+<img  class="ml-1" src="{{image.image.url}}" alt=" {{image.name}}"  width="290" height="290">
+
+<h6> {{image.name}} </h6>
+</div>
+{% endfor %}
+
+
+
+
+</div>
+
+
+
+
+
+
+
 </div>
 
       
