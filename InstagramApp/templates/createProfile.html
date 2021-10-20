@@ -1,0 +1,15 @@
+{% include 'base.html'%}
+
+{% block content%}
+
+<h1>Update Profile</h1>
+<h1>{{current_user.username}}</h1>
+
+<form method ="post" action="{% url 'createProfile' %}" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{form.as_p}}
+       <button class="btn-primary" type="submit">Update Profile</button>
+</form>
+
+      {% endblock %}
+      

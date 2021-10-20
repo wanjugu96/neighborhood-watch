@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'',include('InstagramApp.urls')),
     url(r'^accounts/',include('registration.backends.simple.urls')),
     path('logout/', views.LogoutView.as_view(), name='logout'),
+    
 ]

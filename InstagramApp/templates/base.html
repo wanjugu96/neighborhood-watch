@@ -70,6 +70,19 @@
             {% comment %} {% endif %} {% endcomment %}
       </nav>
       {% endblock %}
+
+      {% block content%}
+
+      <a href="{% url 'createProfile' %}">Complete Profile</a>
+      
+      <h1>my</h1>
+      <form method ="post" action="{% url 'home' %}" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{form.as_p}}
+       <button class="btn-primary" type="submit">Upload Image</button>
+      </form>
+
+      {% endblock %}
     </div>
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
