@@ -176,6 +176,18 @@ def deleteimage(id):
 
     #return redirect('singleimage',id ,{"message":message})
 
+def search_name(request):
+    if 'name' in request.GET and  request.GET["name"]:
+        search_term=request.GET.get("name")
+        profiles=Profile.search_name(search_term)
+        message=f"{search_term}"
+        message=f"{search_term}"
+        return render(request, 'search.html',{"message":message,"profiles": profiles})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})   
+
 
     
 

@@ -1,0 +1,51 @@
+{% include 'base.html'%}
+      {% block navbar %}
+
+
+{% endblock %}
+
+
+
+<div class="container">
+<h1>Welcome to Instagram  {{current_user.username}}</h1>
+<hr>
+<h2> search results for {{message}}</h2>
+<hr>
+
+      {%block content%}
+      <h2> Found {{profiles|length}}profiles for the search term {{message}}</h2>
+      {%if profile%}
+
+{% for profile in  profiles %}
+<h6>this is {{profile.name}}</h6>
+{% endfor %}
+{% else %}
+<h5>{{message}}</h5>
+{% endif %}
+{%endblock%}
+      <br>
+      <hr>
+      <div class="row">
+      {% for profile in  profiles %}
+    <div class="col-md-4">
+    <h5>{{profile.name}}</h5>
+    {%if profile.profile_photo %}
+    <div class="circle">
+    
+    <img src="{{profile.profile_photo.url}}"
+     onerror="this.onerror=null;this.src='https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg';">
+    </div>
+    {%else%}
+    <div class="circle">
+    <img src="https://image.shutterstock.com/image-vector/question-mark-bubble-icon-vector-600w-1169107912.jpg"
+     onerror="this.onerror=null;this.src='https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg';">
+    </div>
+    {% endif %}
+      
+      <a   class="btn btn-light" href="{% url 'profile' profile.name %}">View Profile</a>
+      </div>
+      {% endfor %}
+
+</div>
+</div>
+    

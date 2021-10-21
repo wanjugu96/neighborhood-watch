@@ -12,7 +12,10 @@ urlpatterns = [
     url('^uploadimage$', views.uploadimage,name='uploadimage'),
     path(r'^profile/<name>', views.profile,name='profile'),
     url(r'^image/(\d+)',views.singleimage , name='singleimage'),
-    url(r'^image/(\d+)',views.updatelikes , name='singleimage')
+    url(r'^image/(\d+)',views.updatelikes , name='singleimage'),
+    url(r'^image/(\d+)',views.deleteimage , name='singleimage'),
+    url('^search$',views.search_name, name='search_name')
+
 
     
 ]

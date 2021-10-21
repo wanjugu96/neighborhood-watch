@@ -6,6 +6,13 @@ class Profile(models.Model):
     bio=models.TextField(blank=True,null=True)
     name=models.CharField(max_length=30,default='default name',unique=True)
 
+    @classmethod
+    def search_name(cls,search_term):
+        profiles=cls.objects.filter(name__icontains=search_term)  
+        return profiles 
+       
+   
+
 class Image(models.Model):
     image=models.ImageField(upload_to='InstaImages')
     name = models.CharField(max_length=30)
