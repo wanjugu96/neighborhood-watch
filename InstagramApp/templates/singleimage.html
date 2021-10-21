@@ -6,5 +6,26 @@
 {% endblock %}
 
 {% block content %}
-<h6>{{image.name}}</h6>
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<h4>{{image.name}}</h4>
+<hr>
+<img  class=" n" src="{{image.image.url}}" alt=" {{image.name}}"  width="290" height="290">
+<hr>
+<h6>"{{image.caption}}"</h6>
+</div>
+<div class="col-md-8">
+<h4>Comments</h4>
+<hr>
+<form method ="post" action="{% url 'singleimage' image.id %}" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{form.as_p}}
+       <button class="btn-primary" type="submit">comment</button>
+      </form>
+
+      
+</div>
+</div>
+</div>
 {% endblock  %}

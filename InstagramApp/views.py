@@ -2,8 +2,8 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
-from InstagramApp.forms import uploadimageform ,createProfileform
-from InstagramApp.models import Image, Profile
+from InstagramApp.forms import commentform, uploadimageform ,createProfileform
+from InstagramApp.models import Comment, Image, Profile
 from .email import *
 
 # Create your views here.
@@ -110,8 +110,35 @@ def updatelikes(request,id):
     return render(request,'singleimage.html',{"image":image})
 
 def singleimage(request,id):
-       image=Image.objects.get(id = id)
-       return render(request,'singleimage.html',{"image":image})
+
+    current_user=request.user
+    username=current_user.username
+    image=Image.objects.get(id = id)
+
+    if request.method=='POST':
+        form= commentform(request.POST,request.FILES)
+        if form.is_valid():
+            comment=form.cleaned_data['comment']
+            
+            
+            profile=Profile.objects.get(name=username)
+            profile_id=profile.id
+            commentobj=Comment(comment=comment,profile_id=profile_id,image_id=id)
+
+            commentobj.save()
+
+            return redirect('singleimage', id)
+
+
+            #form.save()
+    else:
+                    
+        form=commentform()
+
+    form= commentform()
+
+
+    return render(request,'singleimage.html',{"image":image, "form":form})
 
     
 

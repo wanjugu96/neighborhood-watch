@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.widgets import Textarea
 from .models import *
 
 class uploadimageform(forms.ModelForm):
@@ -20,3 +21,10 @@ class createProfileform(forms.ModelForm):
     class Meta:
         model=Profile
         fields=['profile_photo','bio']
+
+class commentform(forms.ModelForm):
+    comment=forms.Textarea()
+
+    class Meta:
+        model=Comment
+        fields=['comment']

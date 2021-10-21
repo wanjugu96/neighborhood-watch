@@ -18,6 +18,7 @@ class Image(models.Model):
 class Comment(models.Model):
     profile=models.ForeignKey(Profile,on_delete=models.PROTECT)
     comment=models.TextField()
+    image=models.ForeignKey(Image,on_delete=models.PROTECT,blank=True,null=True,default='')
     
 
 
