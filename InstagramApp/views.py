@@ -46,6 +46,9 @@ def uploadimage(request):
             theimage=Image(name=name,image=image,caption=caption,profile_id=profile_id)
             theimage.save()
 
+            return redirect('profile', name=username)
+
+
             #form.save()
     
         else:
