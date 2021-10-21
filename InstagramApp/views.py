@@ -2,7 +2,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
-from InstagramApp.forms import commentform, uploadimageform ,createProfileform
+from InstagramApp.forms import commentform, updatecaption, uploadimageform ,createProfileform
 from InstagramApp.models import Comment, Image, Profile
 from .email import *
 
@@ -99,6 +99,8 @@ def profile(request,name):
     profile=Profile.objects.get(name=name)
 
     id=profile.id 
+
+    
     
 
     Allimages=Image.objects.filter(profile_id = id)
@@ -136,18 +138,44 @@ def singleimage(request,id):
 
             
             return redirect('singleimage', id)
-
-
-            #form.save()
     else:
                     
         form=commentform()
 
+############################
+
+    if request.method=='POST':
+            form= updatecaption(request.POST,request.FILES)
+            if form.is_valid():
+                caption=form.cleaned_data['caption']
+                Image.objects.filter(id = id).update(caption=caption)
+
+                
+                return redirect('singleimage', id)
+            else:
+                        
+                form2=updatecaption()
+######################
+
+    form2=updatecaption()
     form= commentform()
 
     comments=Comment.objects.filter(image_id=id)
 
-    return render(request,'singleimage.html',{"image":image, "form":form ,"comments":comments})
+    
+
+
+    return render(request,'singleimage.html',{"image":image, "form":form ,"form2":form2, "comments":comments})
+
+def deleteimage(id):
+    Image.objects.filter(id=id).delete()
+    message=f"Successfully deleted"
+
+    #return redirect('singleimage',id ,{"message":message})
+    return HttpResponseRedirect('successfully deleted')
+
+    #return redirect('singleimage',id ,{"message":message})
+
 
     
 

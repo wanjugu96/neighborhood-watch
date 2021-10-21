@@ -28,5 +28,7 @@ class commentform(forms.ModelForm):
     class Meta:
         model=Comment
         fields=['comment']
+
+        
 class  updatecaption(forms.Form):
     caption=forms.CharField(max_length=255)        

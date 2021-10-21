@@ -7,6 +7,7 @@
 
 {% block content %}
 <div class="container">
+<h4>{{message}}</h4>
 <div class="row">
 <div class="col-md-4">
 <h4>{{image.name}}</h4>
@@ -22,6 +23,12 @@
        {% csrf_token %}
        {{form.as_p}}
        <button class="btn-primary" type="submit">comment</button>
+      </form>
+      <hr>
+      <form method ="post" action="{% url 'singleimage' image.id %}" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{form2.as_p}}
+       <button class="btn-primary" type="submit">Update caption</button>
       </form>
       <hr>
 

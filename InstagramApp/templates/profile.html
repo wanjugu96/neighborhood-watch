@@ -109,8 +109,10 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         
         <a   class="btn btn-primary" href="{% url 'singleimage' image.id %}">comment</a>
-        <a   class="btn btn-primary" href="{% url 'singleimage' image.id %}">update caption</a>
-    
+        {% if profile.name == current_user.username %}
+        <a   class="btn btn-info" href="{% url 'singleimage' image.id %}">update caption</a>
+        <a   class="btn btn-danger" href="{% url 'deleteimage' image.id %}">delete Image</a>
+    {% endif %}
       </div>
     </div>
   </div>
