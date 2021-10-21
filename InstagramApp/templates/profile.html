@@ -32,10 +32,12 @@
 <div class="col-md-8">
 <br>
 <h3>{{profile.name}}
+{% if profile.name == current_user.username %}
 <span>
 
 <a class="btn btn-outline-dark btn-sm" href="{% url 'createProfile' %}">Edit Profile</a>
 </span>
+{% endif %}
  </h3>
  <br>
     <h4>Bio : " {{profile.bio}} "</h4>
@@ -49,6 +51,7 @@
     </span>
     </h6>
     <hr>
+    
 {% endblock  %}
 </div>
 </div>
@@ -67,8 +70,8 @@
         <div class="text">{{image.name}}</div>
     </div>
     
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{image.id}}">
-  Launch demo modal
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{image.id}}">
+  see more
 </button>
 
 
@@ -90,6 +93,8 @@
       </div>
       <div class="col-md-4 ms-auto">
       <h6>{{image.likes}} likes</h6>
+      <hr>
+      <h6>"{{image.caption}}"</h6>
       </div>
     </div>
     
@@ -102,7 +107,9 @@
        {% comment %} <button type="submit" value="#" onclick="location.href='{% url 'updatelikes' %}'" name='mybtn2'>like</button> {% endcomment %}
         {% comment %} <a href="{% url 'updatelikes' %}">like</a> {% endcomment %}
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
+        <a   class="btn btn-primary" href="{% url 'singleimage' image.id %}">comment</a>
+    
       </div>
     </div>
   </div>

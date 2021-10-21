@@ -12,14 +12,17 @@ class Image(models.Model):
     caption=models.TextField()
     profile=models.ForeignKey(Profile,on_delete=models.PROTECT,null=True)
     likes=models.IntegerField(null=True,default=0)
-    comments=models.TextField(blank=True)
+
+
 
 
 class Comment(models.Model):
     profile=models.ForeignKey(Profile,on_delete=models.PROTECT)
     comment=models.TextField()
     image=models.ForeignKey(Image,on_delete=models.PROTECT,blank=True,null=True,default='')
-    
+        
+
+
 
 
 

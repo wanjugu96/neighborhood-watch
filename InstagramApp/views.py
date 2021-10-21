@@ -53,9 +53,11 @@ def uploadimage(request):
             message=f"Successfully uploaded"
 
     form=uploadimageform()
-    profile=Profile.objects.filter(name=username)           
+    profile=Profile.objects.filter(name=username)
 
-    return render(request,'index.html',{"current_user":current_user,"form":form,"profile":profile})
+    profiles=Profile.objects.filter()           
+
+    return render(request,'index.html',{"current_user":current_user,"form":form,"profile":profile,"profiles":profiles})
 
 def createProfile(request):
     current_user = request.user
@@ -89,6 +91,8 @@ def createProfile(request):
 
 
 def profile(request,name):
+    current_user = request.user
+    username=current_user.username
     profile=Profile.objects.get(name=name)
 
     id=profile.id 
@@ -99,7 +103,7 @@ def profile(request,name):
 
     
 
-    return render(request ,'profile.html',{"profile":profile, "Allimages":Allimages,"form":form}) 
+    return render(request ,'profile.html',{"profile":profile, "Allimages":Allimages,"form":form,"current_user":current_user}) 
 
 def updatelikes(request,id):
     image=Image.objects.get(id = id)
