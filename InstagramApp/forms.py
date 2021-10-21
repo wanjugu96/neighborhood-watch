@@ -23,7 +23,7 @@ class createProfileform(forms.ModelForm):
         fields=['profile_photo','bio']
 
 class commentform(forms.ModelForm):
-    comment=forms.Textarea()
+    comment=forms.CharField()
 
     class Meta:
         model=Comment

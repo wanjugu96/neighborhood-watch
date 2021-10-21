@@ -127,6 +127,7 @@ def singleimage(request,id):
 
             commentobj.save()
 
+            
             return redirect('singleimage', id)
 
 
@@ -137,8 +138,9 @@ def singleimage(request,id):
 
     form= commentform()
 
+    comments=Comment.objects.filter(image_id=id)
 
-    return render(request,'singleimage.html',{"image":image, "form":form})
+    return render(request,'singleimage.html',{"image":image, "form":form ,"comments":comments})
 
     
 

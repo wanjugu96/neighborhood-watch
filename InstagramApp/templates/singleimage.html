@@ -23,8 +23,16 @@
        {{form.as_p}}
        <button class="btn-primary" type="submit">comment</button>
       </form>
+      <hr>
 
-      
+{% for comment in comments  %}
+<h6>
+{{comment.profile.name}}: 
+<span>
+<p>     ~{{comment.comment}} ~</p>
+</span>
+</h6>
+{% endfor %}
 </div>
 </div>
 </div>
