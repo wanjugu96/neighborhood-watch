@@ -58,10 +58,12 @@
                           <span class="caret"></span>
                       </a>
                 <ul class="dropdown-menu" role="menu">
+                 {% comment %} {% if profile.name == current_user.username %} {% endcomment %}
               
                 <li>
   <a href="{% url 'createProfile'  %}"> Edit profile</a> 
 </li>
+{% comment %} {% endif %} {% endcomment %}
   {% comment %} <a href="{% url 'profile' current_user.username %}">Editrrr Profile</a> 
                 <a href="{%url 'profile' current_user.username%}">profile</a> 
 

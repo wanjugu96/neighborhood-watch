@@ -25,11 +25,14 @@
        <button class="btn-primary" type="submit">comment</button>
       </form>
       <hr>
+      {% if profile.name == current_user.username %}
+
       <form method ="post" action="{% url 'singleimage' image.id %}" enctype="multipart/form-data">
        {% csrf_token %}
        {{form2.as_p}}
        <button class="btn-primary" type="submit">Update caption</button>
       </form>
+      {% endif %}
       <hr>
 
 {% for comment in comments  %}

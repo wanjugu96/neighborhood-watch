@@ -79,7 +79,7 @@ def createProfile(request):
             #theprofile=Profile(profile_photo=profile_photo,bio=bio)
             profile.save()
 
-            return redirect('profile', name=username)
+            return redirect('profile', name=username )
 
 
             #form.save()
@@ -88,9 +88,10 @@ def createProfile(request):
             form=createProfileform()
 
     form= createProfileform()
+    profile=Profile.objects.get(name=username)
        
 
-    return render(request,'createProfile.html',{"form":form, "current_user":current_user})
+    return render(request,'createProfile.html',{"form":form, "current_user":current_user, "profile":profile})
 
 
 def profile(request,name):

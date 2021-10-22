@@ -35,6 +35,7 @@
       <div class="row">
       {% for profile in  profiles %}
     <div class="col-md-4">
+    
     {%if profile.profile_photo %}
     <div class="circle">
     
@@ -47,8 +48,15 @@
      onerror="this.onerror=null;this.src='https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg';">
     </div>
     {% endif %}
-      <h6>{{profile.name}}</h6>
+    <h5>{{profile.name}}
+    <span>
+      
+      <a   class="btn btn-light" href="{% url 'profile' profile.name %}">View Profile</a>
+      </span>
+      </h5>
+      <hr>
       </div>
+      
       {% endfor %}
 
 </div>
