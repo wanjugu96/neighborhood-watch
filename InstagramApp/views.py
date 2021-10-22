@@ -26,7 +26,7 @@ def home(request):
 
         email=current_user.email
 
-        send_welcome_email(username,email)
+        #send_welcome_email(username,email)
 
               
 
