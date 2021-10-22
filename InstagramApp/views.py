@@ -15,7 +15,7 @@ def home(request):
     username=current_user.username
     email=current_user.email
 
-    send_welcome_email(username,email)
+    #send_welcome_email(username,email)
 
     thisprofile=Profile.objects.filter(name = username)
     if thisprofile:
