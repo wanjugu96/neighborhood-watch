@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from .email import send_welcome_email
 
 from InstagramApp.forms import commentform, updatecaption, uploadimageform ,createProfileform
 from InstagramApp.models import Comment, Image, Profile
@@ -12,12 +13,21 @@ def home(request):
     
     current_user = request.user
     username=current_user.username
+    email=current_user.email
+
+    send_welcome_email(username,email)
+
     thisprofile=Profile.objects.filter(name = username)
     if thisprofile:
         return redirect('profile', username)
     else:
         aprofile=Profile(name=username)
         aprofile.save()
+
+        email=current_user.email
+
+        send_welcome_email(username,email)
+
               
 
     #return render(request,'index.html',{"current_user":current_user,})
