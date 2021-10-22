@@ -14,6 +14,11 @@ from pathlib import Path
 import os 
 from decouple import config
 import django_heroku
+import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'InstagramApp',
     'bootstrap4',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -79,10 +85,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'InstagramProject.wsgi.application'
 
+MODE=config("MODE", default="dev")
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# if config('MODE')=="dev":
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -91,6 +99,13 @@ DATABASES = {
         'PASSWORD':'Serum2551'
     }
 }
+# # production
+# else:
+#    DATABASES = {
+#        'default': dj_database_url.config(
+#            default=config('DATABASE_URL')
+#        )
+#    }    
 
 
 # Password validation
@@ -158,3 +173,11 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+cloudinary.config( 
+  cloud_name = "shellmithmedia", 
+  api_key = "624116288817485", 
+  api_secret = "YOUR_API_SECRET" 
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
