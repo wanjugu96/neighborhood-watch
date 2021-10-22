@@ -177,7 +177,7 @@ django_heroku.settings(locals())
 cloudinary.config( 
   cloud_name = "shellmithmedia", 
   api_key = "624116288817485", 
-  api_secret = "YOUR_API_SECRET" 
+  api_secret = "uN5izJEd6JRZ0UrFZzvlXGZCF64" 
 )
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
