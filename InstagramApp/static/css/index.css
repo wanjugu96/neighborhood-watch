@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+.thenav {
+    background-color: #49c5b6;
+}
+
 .profbio {
     background-color: whitesmoke;
     height: 400px;

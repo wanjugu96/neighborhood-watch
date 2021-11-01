@@ -168,7 +168,7 @@ def singleimage(request,id):
     #total=(design+usability+content)/3
 
     rates=Rate.objects.filter(image_id=id)
-
+    
     
 
 
