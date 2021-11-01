@@ -24,11 +24,15 @@ class createProfileform(forms.ModelForm):
         fields=['profile_photo','bio','Phone_num','email']
 
 class commentform(forms.ModelForm):
-    comment=forms.CharField()
+    design=forms.IntegerField()
+    usability=forms.IntegerField()
+    content=forms.IntegerField()
+
+
 
     class Meta:
-        model=Comment
-        fields=['comment']
+        model=Rate
+        fields=['design','design','content']
 
         
 class  updatecaption(forms.Form):

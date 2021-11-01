@@ -35,9 +35,13 @@ class Image(models.Model):
 
 
 
-class Comment(models.Model):
+class Rate(models.Model):
     profile=models.ForeignKey(Profile,on_delete=models.PROTECT)
-    comment=models.TextField()
+    design=models.IntegerField()
+    usability=models.IntegerField()
+    content=models.IntegerField()
+
+
     image=models.ForeignKey(Image,on_delete=models.PROTECT,blank=True,null=True,default='')
         
 

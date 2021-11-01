@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .email import send_welcome_email
 
 from InstagramApp.forms import commentform, updatecaption, uploadimageform ,createProfileform
-from InstagramApp.models import Comment, Image, Profile
+from InstagramApp.models import Rate, Image, Profile
 from .email import *
 
 # Create your views here.
