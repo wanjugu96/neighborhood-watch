@@ -81,10 +81,14 @@ def createProfile(request):
         form= createProfileform(request.POST,request.FILES)
         if form.is_valid():
             bio=form.cleaned_data['bio']
+            Phone_num=form.cleaned_data['Phone_num']
+            email=form.cleaned_data['email']
             profile_photo=form.cleaned_data['profile_photo']
             profile=Profile.objects.get(name=username)
             profile.bio=bio
             profile.profile_photo=profile_photo
+            profile.email=email
+            profile.Phone_num=Phone_num
           
             #theprofile=Profile(profile_photo=profile_photo,bio=bio)
             profile.save()

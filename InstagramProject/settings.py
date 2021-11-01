@@ -94,7 +94,7 @@ MODE=config("MODE", default="dev")
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'instagram',
+        'NAME': 'awards',
         'USER':'postgres',
         'PASSWORD':'Serum2551'
     }

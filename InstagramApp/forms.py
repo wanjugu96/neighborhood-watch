@@ -17,10 +17,12 @@ class createProfileform(forms.ModelForm):
     
     profile_photo = forms.ImageField()
     bio= forms.Textarea()
+    Phone_num=forms.CharField()
+    email = forms.CharField()
 
     class Meta:
         model=Profile
-        fields=['profile_photo','bio']
+        fields=['profile_photo','bio','Phone_num','email']
 
 class commentform(forms.ModelForm):
     comment=forms.CharField()
