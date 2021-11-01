@@ -45,15 +45,16 @@ def uploadimage(request):
     if request.method=='POST':
         form=uploadimageform(request.POST,request.FILES)
         if form.is_valid():
-            name=form.cleaned_data['name']
-            image=form.cleaned_data['image']
-            caption=form.cleaned_data['caption']
+            title=form.cleaned_data['title']
+            landingpage=form.cleaned_data['landingpage']
+            description=form.cleaned_data['description']
+            link=form.cleaned_data['link']
 
             profile=Profile.objects.get(name=username)
             profile_id=profile.id
 
 
-            theimage=Image(name=name,image=image,caption=caption,profile_id=profile_id)
+            theimage=Image(title=title,landingpage=landingpage,description=description,profile_id=profile_id,link=link)
             theimage.save()
 
             return redirect('profile', name=username)

@@ -20,7 +20,7 @@
 
 
 <div class="container">
-<h1>Welcome to Instagram  {{current_user.username}}</h1>
+<h1>Welcome to Awaards  {{current_user.username}}</h1>
 <hr>
 <h2> Here are some of people you may know</h2>
 <hr>
@@ -51,6 +51,7 @@
     </div>
     {% endif %}
     <h5>{{profile.name}}
+     <h5>{{profile.id}}
     <span>
       
       <a   class="btn btn-light" href="{% url 'profile' profile.name %}">View Profile</a>

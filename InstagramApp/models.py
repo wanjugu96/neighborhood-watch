@@ -20,11 +20,13 @@ class Profile(models.Model):
    
 
 class Image(models.Model):
-    #image=models.ImageField(upload_to='InstaImages')
-    image = CloudinaryField('image')
+    
+    landingpage = CloudinaryField('image')
 
-    name = models.CharField(max_length=30)
-    caption=models.TextField()
+    title = models.CharField(max_length=30)
+    link = models.CharField(max_length=30,blank=True,null=True,default='')
+
+    description=models.TextField()
     profile=models.ForeignKey(Profile,on_delete=models.PROTECT,null=True)
     likes=models.IntegerField(null=True,default=0)
     
