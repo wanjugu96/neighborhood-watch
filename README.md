@@ -1,22 +1,22 @@
-# Instgram Clone
+# Awaards Clone
 ## Author  
   
 [Wanjugu Mung'au](https://github.com/wanjugu96)  
   
 # Description  
-A clone of the website for the popular photo app Instagram
-  
+An application like Awwards (It doesn't necessarily have to be exactly the same). The application will allow a user to post a project he/she has created and get it reviewed by his/her peers.
 ##  Live Link  
- Click [https://the-instgramclone.herokuapp.com/](Instagram clone)  to visit the site
+ Click [https://the-instgramclone.herokapp.com/](Instagram clone)  to visit the site
   
 
 ## User Story  
   
-* Sign in to the application to start using.
-* Upload my pictures to the application.
-* See my profile with all my pictures.
-* Follow other users and see their pictures on my timeline.
-* Like a picture and leave a comment on it.
+* View posted projects and their details
+* Post a project to be rated/reviewed
+* Rate/ review other users' projects
+* Search for projects 
+* View projects overall score
+* View my profile page
   
 
   
@@ -25,7 +25,7 @@ To get the project .......
   
 ##### Cloning the repository:  
  ```bash 
-hhttps://github.com/wanjugu96/Instagram-Clone.git```
+https://github.com/wanjugu96/Project-Rating-App.git```
 ##### Navigate into the folder and install requirements  
  ```bash 
 cd Personal gallery pip install -r requirements.txt 
