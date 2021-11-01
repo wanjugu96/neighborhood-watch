@@ -37,14 +37,14 @@
       {% endif %}
       <hr>
 
-{% comment %} {% for comment in comments  %}
+ {% for rate in rates  %}
 <h6>
-{{comment.profile.name}}: 
+{{rate.profile.name}}: 
 <span>
-<p>     ~{{comment.comment}} ~</p>
+<p>     ~{{rate.total}} ~</p>
 </span>
 </h6>
-{% endfor %} {% endcomment %}
+{% endfor %} 
 </div>
 </div>
 </div>
