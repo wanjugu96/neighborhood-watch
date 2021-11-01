@@ -143,14 +143,18 @@ def singleimage(request,id):
     if request.method=='POST':
         form= commentform(request.POST,request.FILES)
         if form.is_valid():
-            comment=form.cleaned_data['comment']
-            
+            design=form.cleaned_data['design']
+            usability=form.cleaned_data['design']
+            content=form.cleaned_data['content']
             
             profile=Profile.objects.get(name=username)
             profile_id=profile.id
-            commentobj=Comment(comment=comment,profile_id=profile_id,image_id=id)
+            total=(design+usability+content)/3
+            commentobj=Rate(content=content,profile_id=profile_id,image_id=id,usability=usability,design=design,total=total)
 
             commentobj.save()
+
+            total=(design+usability+content)/3
 
             
             return redirect('singleimage', id)
@@ -158,30 +162,17 @@ def singleimage(request,id):
                     
         form=commentform()
 
-############################
 
-    if request.method=='POST':
-            form= updatecaption(request.POST,request.FILES)
-            if form.is_valid():
-                caption=form.cleaned_data['caption']
-                Image.objects.filter(id = id).update(caption=caption)
 
-                
-                return redirect('singleimage', id)
-            else:
-                        
-                form2=updatecaption()
-######################
-
-    form2=updatecaption()
     form= commentform()
+    #total=(design+usability+content)/3
 
-    comments=Comment.objects.filter(image_id=id)
+    rates=Rate.objects.filter(image_id=id)
 
     
 
 
-    return render(request,'singleimage.html',{"image":image, "form":form ,"form2":form2, "comments":comments})
+    return render(request,'singleimage.html',{"image":image, "form":form,"rates":rates})
 
 def deleteimage(id):
     Image.objects.filter(id=id).delete()

@@ -37,9 +37,10 @@ class Image(models.Model):
 
 class Rate(models.Model):
     profile=models.ForeignKey(Profile,on_delete=models.PROTECT)
-    design=models.IntegerField()
-    usability=models.IntegerField()
-    content=models.IntegerField()
+    design=models.IntegerField(max_length=30,blank=True,null=True,default=0)
+    usability=models.IntegerField(max_length=30,blank=True,null=True,default=0)
+    content=models.IntegerField(max_length=30,blank=True,null=True,default=0)
+    total=models.IntegerField(max_length=30,blank=True,null=True,default=0)
 
 
     image=models.ForeignKey(Image,on_delete=models.PROTECT,blank=True,null=True,default='')
