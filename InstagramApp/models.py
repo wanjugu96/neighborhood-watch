@@ -2,6 +2,15 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 
+class Neighbourhood(models.Model):
+    
+    landingpage = CloudinaryField('image')
+
+    Name = models.CharField(max_length=30)
+    location = models.CharField(max_length=30,blank=True,null=True,default='')
+    Occupants=models.IntegerField(null=True,default=0)
+    
+
 # Create your models here.
 class Profile(models.Model):
     #profile_photo=models.ImageField(upload_to='InstaImages',blank=True,null=True,default='')
@@ -11,6 +20,8 @@ class Profile(models.Model):
     name=models.CharField(max_length=30,default='default name',unique=True)
     Phone_num=models.CharField(max_length=30,blank=True,null=True,default='')
     email=models.CharField(max_length=30,blank=True,null=True,default='')
+    # neighborhood=models.ForeignKey(Neighbourhood,on_delete=models.PROTECT,null=True)
+
 
     @classmethod
     def search_name(cls,search_term):
