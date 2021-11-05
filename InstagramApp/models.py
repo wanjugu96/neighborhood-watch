@@ -32,9 +32,9 @@ class Profile(models.Model):
 
 class Image(models.Model):
     
-    landingpage = CloudinaryField('image')
+    Businessimage = CloudinaryField('image')
 
-    title = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
     link = models.CharField(max_length=30,blank=True,null=True,default='')
 
     description=models.TextField()

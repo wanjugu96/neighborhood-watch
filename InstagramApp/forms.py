@@ -3,14 +3,15 @@ from django.forms.widgets import Textarea
 from .models import *
 
 class uploadimageform(forms.ModelForm):
-    title = forms.CharField()
-    landing_page = forms.ImageField()
+    # title = forms.CharField()
+    name = forms.CharField()
+    Busines_image = forms.ImageField()
     description= forms.Textarea()
-    link = forms.CharField()
+    # link = forms.CharField()
 
     class Meta:
         model=Image
-        fields=['title','landingpage','description','link']
+        fields=['name','Businessimage','description']
 
 class createProfileform(forms.ModelForm):
     

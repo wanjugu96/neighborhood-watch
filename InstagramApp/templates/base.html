@@ -48,7 +48,8 @@
         </div>
 <div class="col-sm-3 col-md-3">
     <button type="button " class="btn  btn-outline-dark thenav" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Upload project
+  Upload business
+
 
 </button>
 </div>
@@ -101,7 +102,7 @@
   <div class="modal-dialog">
   <div class="modal-content">
      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Upload image</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Upload Neighbourhoods</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -109,7 +110,7 @@
       <form method ="post" action="{% url 'uploadimage' %}" enctype="multipart/form-data">
        {% csrf_token %}
        {{form.as_p}}
-       <button class="btn-primary" type="submit">Upload Image</button>
+       <button class="btn-primary" type="submit">Upload Business</button>
       </form>
       </div>
       

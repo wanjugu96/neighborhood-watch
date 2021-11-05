@@ -1,4 +1,11 @@
 {% include 'base.html'%}
+<head>
+<style>
+.container{
+      backgroundColor:blue;
+}
+</style>
+</head>
       {% block navbar %}
       {% load cloudinary %}
 
@@ -20,9 +27,12 @@
 
 
 <div class="container">
-<h1>Welcome to Nyumbani watch  {{current_user.username}}</h1>
+<h1>Welcome to your Neighbourhood  {{current_user.username}}</h1>
 <hr>
-<h2> Here are some of the neighbourhoods</h2>
+<h2> Here are some of the People in your Neighbourhood</h2>
+<hr>
+<hr>
+<h2>click each to see their business post</h2>
 <hr>
  
 
