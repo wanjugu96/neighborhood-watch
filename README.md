@@ -1,22 +1,23 @@
-# Awaards Clone
+# Nyumbani Watch
 ## Author  
   
 [Wanjugu Mung'au](https://github.com/wanjugu96)  
   
 # Description  
-An application like Awwards (It doesn't necessarily have to be exactly the same). The application will allow a user to post a project he/she has created and get it reviewed by his/her peers.
+An application like Awwards that helps you keep track of your neighbourhood.
 ##  Live Link  
- Click [https://the-instgramclone.herokapp.com/](Instagram clone)  to visit the site
+ Click [/](Instagram clone)  to visit the site
   
 
 ## User Story  
   
-* View posted projects and their details
-* Post a project to be rated/reviewed
-* Rate/ review other users' projects
-* Search for projects 
-* View projects overall score
-* View my profile page
+Sign in with the application to start using.
+Set up a profile about me and a general location and my neighborhood name.
+Find a list of different businesses in my neighborhood.
+Find Contact Information for the health department and Police authorities near my neighborhood.
+Create Posts that will be visible to everyone in my neighborhood.
+Change My neighborhood when I decide to move out.
+Only view details of a single neighborhood.
   
 
   
