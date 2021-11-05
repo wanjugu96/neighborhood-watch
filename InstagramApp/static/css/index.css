@@ -1,3 +1,26 @@
+header {
+    height: 100vh;
+    background-image: url("/static/images/rowan.jpg");
+    /* flex-box thing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    background-size: cover;
+    margin-bottom: 30px;
+    color: rgb(2, 2, 2);
+    font-family: monospace;
+    filter: blur(0.6px);
+    -webkit-filter: blur(0.6px);
+}
+
+.words {
+    background-color: rgba(211, 211, 211, 0.8);
+    padding-top: 100px;
+    text-align: left;
+    padding-bottom: 100px;
+}
+
 .circle {
     border-radius: 50%;
     height: 250px;
